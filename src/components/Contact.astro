@@ -1,0 +1,15 @@
+---
+import { portfolio } from '../data/portfolio.js';
+const { owner, socials } = portfolio;
+---
+<section id="contact" class="section">
+  <div class="container card animate-on-scroll">
+    <h3>Let's Work Together</h3>
+    <p>I'm open to projects, internships, and learning opportunities. Reach me at <a href={`mailto:${owner.email}`}>{owner.email}</a>.</p>
+    <div class="socials">
+      {socials.map(s => (
+        <a href={s.url} target="_blank" rel="noreferrer" class="skill">{s.name}</a>
+      ))}
+    </div>
+  </div>
+</section>

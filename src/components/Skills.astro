@@ -1,0 +1,21 @@
+---
+import { portfolio } from '../data/portfolio.js';
+const { skills } = portfolio;
+---
+<section id="skills" class="section">
+  <div class="container">
+    <h3 class="section-heading animate-on-scroll">Skills</h3>
+    <div class="skills-grid">
+      {skills.map((group) => (
+        <div class="card animate-on-scroll">
+          <h4>{group.category}</h4>
+          <div class="skill-badges">
+            {group.items.map((s) => (
+              <span class="skill">{s}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+---
+import { portfolio } from '../data/portfolio.js';
+const { projects } = portfolio;
+---
+<section id="projects" class="section">
+  <div class="container">
+    <h3 class="section-heading animate-on-scroll">Projects</h3>
+    <div class="projects-grid">
+      {projects.map((p) => (
+        <article class="card animate-on-scroll">
+          <img src={p.image} alt={p.title} width="600" height="360" loading="lazy" />
+          <h4>{p.title}</h4>
+          <p>{p.description}</p>
+          <div class="skill-badges">
+            {p.tags.map(tag => <span class="skill">{tag}</span>)}
+          </div>
+          <div class="project-actions">
+            {p.status === 'coming-soon' ? (
+              <span class="btn btn-outline">Coming Soon</span>
+            ) : (
+              <>
+                {p.links.github ? <a class="btn btn-outline" href={p.links.github} target="_blank" rel="noreferrer">GitHub</a> : null}
+                {p.links.live ? <a class="btn btn-primary" href={p.links.live} target="_blank" rel="noreferrer">Live</a> : null}
+              </>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+---
+import { portfolio } from '../data/portfolio.js';
+const { education } = portfolio;
+---
+<section id="timeline" class="section">
+  <div class="container">
+    <h3 class="section-heading animate-on-scroll">Education</h3>
+    <div class="timeline">
+      {education.map((e) => (
+        <div class="timeline-item card animate-on-scroll">
+          <div class="timeline-left">
+            <strong>{e.startYear}{e.endYear ? ` – ${e.endYear}` : ' – Present'}</strong>
+          </div>
+          <div class="timeline-right">
+            <h4>{e.degree}</h4>
+            <div class="muted">{e.institution}</div>
+            {e.isCurrent ? <div class="badge">Current</div> : null}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

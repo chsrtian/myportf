@@ -1,0 +1,17 @@
+---
+import { portfolio } from '../data/portfolio.js';
+const { owner } = portfolio;
+---
+<section id="hero" class="hero section">
+  <div class="container hero-inner animate-on-scroll">
+    <div class="hero-content">
+      <h1>{owner.name}</h1>
+      <h2 class="subtitle">{owner.role}</h2>
+      <p class="lead">{owner.tagline}</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">View My Projects</a>
+        <a class="btn btn-outline btn-ml" href="#contact">Let's Connect</a>
+      </div>
+    </div>
+  </div>
+</section>
