@@ -144,7 +144,7 @@ export const portfolio = {
   certificates: {
     title: "Certificates & Training",
     description:
-      "I am currently organizing my certificates and training records. This section will include completed certifications related to web development, programming, cybersecurity, AI, and information technology.",
+      "A growing collection of certifications and training achievements focused on AI, web development, and responsible technology.",
     items: [
       {
         id: 1,
@@ -164,6 +164,33 @@ export const portfolio = {
       startYear: 2021,
       endYear: null,
       isCurrent: true,
+    },
+  ],
+
+  milestones: [
+    {
+      year: 2026,
+      title: "AI Ready ASEAN",
+      subtitle: "Certificate of Completion",
+      kind: "Certificate",
+    },
+    {
+      year: 2026,
+      title: "Smart Contract Document Validation System",
+      subtitle: "Capstone Project",
+      kind: "Capstone",
+    },
+    {
+      year: 2026,
+      title: "Nestora — Intelligent Rental Discovery Platform",
+      subtitle: "Web Application",
+      kind: "Project",
+    },
+    {
+      year: 2026,
+      title: "Plant Species Image Classification",
+      subtitle: "Machine Learning Project",
+      kind: "Project",
     },
   ],
 

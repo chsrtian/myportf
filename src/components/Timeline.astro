@@ -1,6 +1,23 @@
 ---
 import { portfolio } from '../data/portfolio.js';
-const { education } = portfolio;
+const { education, milestones } = portfolio;
+
+const items = [
+  ...education.map((e) => ({
+    date: `${e.startYear}${e.endYear ? ` – ${e.endYear}` : ' – Present'}`,
+    sortYear: e.startYear,
+    title: e.degree,
+    subtitle: e.institution,
+    badge: e.isCurrent ? 'Current' : null,
+  })),
+  ...(milestones || []).map((m) => ({
+    date: String(m.year),
+    sortYear: m.year,
+    title: m.title,
+    subtitle: m.subtitle,
+    badge: m.kind || null,
+  })),
+].sort((a, b) => b.sortYear - a.sortYear);
 ---
 <section id="timeline" class="section">
   <div class="container">
@@ -10,16 +27,16 @@ const { education } = portfolio;
     </h2>
 
     <div class="timeline">
-      {education.map((e) => (
+      {items.map((item) => (
         <div class="timeline-item animate-on-scroll">
           <span class="timeline-node" aria-hidden="true"></span>
           <div class="timeline-left">
-            <strong>{e.startYear}{e.endYear ? ` – ${e.endYear}` : ' – Present'}</strong>
+            <strong>{item.date}</strong>
           </div>
           <div class="timeline-right">
-            <h4>{e.degree}</h4>
-            <div class="muted">{e.institution}</div>
-            {e.isCurrent ? <div class="badge">Current</div> : null}
+            <h4>{item.title}</h4>
+            <div class="muted">{item.subtitle}</div>
+            {item.badge ? <div class="badge">{item.badge}</div> : null}
           </div>
         </div>
       ))}

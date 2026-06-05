@@ -372,6 +372,14 @@ html.menu-open .mobile-menu { display: block; }
   margin: 0 0 var(--space-md) 0;
   color: var(--color-text-primary);
 }
+.hero-greeting {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-sm) 0;
+  letter-spacing: 0.08em;
+}
 .hero-name .gradient-text {
   background: var(--color-gradient-accent);
   -webkit-background-clip: text;
@@ -795,8 +803,12 @@ html.menu-open .mobile-menu { display: block; }
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.project-tech { gap: 0.35rem; }
-.project-tech .skill { font-size: 0.72rem; padding: 0.3rem 0.55rem; }
+.project-tech { gap: 0.5rem; }
+.project-tech .skill {
+  font-size: 0.72rem;
+  padding: 0.38rem 0.65rem;
+  border-color: rgba(232, 234, 240, 0.12);
+}
 .project-actions {
   display: flex;
   gap: 0.5rem;
