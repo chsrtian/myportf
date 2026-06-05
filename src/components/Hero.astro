@@ -1,17 +1,84 @@
 ---
 import { portfolio } from '../data/portfolio.js';
 const { owner } = portfolio;
+const rolesJson = JSON.stringify(owner.roles);
 ---
 <section id="hero" class="hero section">
-  <div class="container hero-inner animate-on-scroll">
-    <div class="hero-content">
-      <h1>{owner.name}</h1>
-      <h2 class="subtitle">{owner.role}</h2>
-      <p class="lead">{owner.tagline}</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#projects">View My Projects</a>
-        <a class="btn btn-outline btn-ml" href="#contact">Let's Connect</a>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content animate-on-scroll">
+        <span class="hero-eyebrow">
+          <span class="dot" aria-hidden="true"></span>
+          {owner.role}
+        </span>
+        <h1 class="hero-name">
+          Hi, I'm <span class="gradient-text">{owner.name}</span>
+        </h1>
+        <p class="hero-statement">{owner.heroStatement}</p>
+        <div class="hero-roles" aria-live="polite">
+          <span class="role-prefix">// I build things as a</span>
+          <span class="typewriter" id="typewriter" data-roles={rolesJson}></span>
+          <span class="caret" aria-hidden="true"></span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View My Projects</a>
+          <a class="btn btn-outline" href="#contact">Let's Connect</a>
+        </div>
+      </div>
+
+      <div class="hero-side animate-on-scroll" aria-hidden="true">
+        <div class="hero-orb"></div>
+        <div class="hero-orb-ring"></div>
       </div>
     </div>
   </div>
+
+  <script>
+    (function () {
+      const el = document.getElementById('typewriter');
+      if (!el) return;
+      const roles = JSON.parse(el.dataset.roles || '[]');
+      if (!roles.length) return;
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) {
+        el.textContent = roles[0];
+        return;
+      }
+
+      let roleIdx = 0;
+      let charIdx = 0;
+      let deleting = false;
+
+      const TYPE_DELAY = 75;
+      const DELETE_DELAY = 35;
+      const HOLD_DELAY = 1800;
+      const PAUSE_DELAY = 350;
+
+      function tick() {
+        const current = roles[roleIdx];
+        if (!deleting) {
+          charIdx++;
+          el.textContent = current.slice(0, charIdx);
+          if (charIdx === current.length) {
+            deleting = true;
+            setTimeout(tick, HOLD_DELAY);
+            return;
+          }
+          setTimeout(tick, TYPE_DELAY);
+        } else {
+          charIdx--;
+          el.textContent = current.slice(0, charIdx);
+          if (charIdx === 0) {
+            deleting = false;
+            roleIdx = (roleIdx + 1) % roles.length;
+            setTimeout(tick, PAUSE_DELAY);
+            return;
+          }
+          setTimeout(tick, DELETE_DELAY);
+        }
+      }
+      setTimeout(tick, 400);
+    })();
+  </script>
 </section>

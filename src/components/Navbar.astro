@@ -4,7 +4,10 @@ const { owner } = portfolio;
 ---
 <header class="site-header">
   <div class="container header-inner">
-    <div class="brand"><a href="/">{owner.name}</a></div>
+    <a href="#hero" class="brand" aria-label="Home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      {owner.name}
+    </a>
 
     <nav class="nav-links" aria-label="Main Navigation">
       <a href="#about">About</a>
@@ -15,7 +18,7 @@ const { owner } = portfolio;
       <a href="#contact">Contact</a>
     </nav>
 
-    <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">☰</button>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
   </div>
 
   <div class="mobile-menu" role="navigation" aria-hidden="true">
@@ -34,12 +37,14 @@ const { owner } = portfolio;
       const btn = document.getElementById('menu-toggle');
       if (!btn) return;
       btn.addEventListener('click', () => {
-        document.documentElement.classList.toggle('menu-open');
+        const isOpen = document.documentElement.classList.toggle('menu-open');
+        btn.setAttribute('aria-expanded', String(isOpen));
       });
       document.addEventListener('click', (e) => {
         const link = e.target.closest('a');
         if (link && document.documentElement.classList.contains('menu-open')) {
           document.documentElement.classList.remove('menu-open');
+          btn.setAttribute('aria-expanded', 'false');
         }
       });
     })();

@@ -5,24 +5,28 @@ const MAX_TECH = 6;
 ---
 <section id="projects" class="section">
   <div class="container">
-    <h3 class="section-heading animate-on-scroll">Projects</h3>
+    <h2 class="section-heading animate-on-scroll">
+      <span class="section-index">03</span>
+      Selected Projects
+    </h2>
+
     <div class="projects-grid">
       {projects.map((p) => (
-        <article class="card project-card animate-on-scroll">
-          <header class="project-header">
-            <div class="project-icon" style={`background: ${p.gradient};`} aria-hidden="true">
-              <span class="project-initial">{p.title.charAt(0)}</span>
+        <article class="card project-card animate-on-scroll" style={`--project-accent: ${p.accent};`}>
+          <div class="project-body">
+            <div class="project-meta">
+              {p.category ? <span class="project-category">{p.category}</span> : null}
+              {p.label ? <span class="project-label">{p.label}</span> : null}
             </div>
-            {p.category ? <span class="project-category">{p.category}</span> : null}
-          </header>
-          <h4 class="project-title">{p.title}</h4>
-          <p class="project-description">{p.description}</p>
-          <div class="skill-badges project-tech">
-            {p.techStack.slice(0, MAX_TECH).map((tag) => <span class="skill">{tag}</span>)}
-          </div>
-          <div class="project-actions">
-            {p.links.github ? <a class="btn btn-outline" href={p.links.github} target="_blank" rel="noreferrer">GitHub</a> : null}
-            {p.links.live ? <a class="btn btn-primary" href={p.links.live} target="_blank" rel="noreferrer">Live Demo</a> : null}
+            <h3 class="project-title">{p.title}</h3>
+            <p class="project-description">{p.description}</p>
+            <div class="skill-badges project-tech">
+              {p.techStack.slice(0, MAX_TECH).map((tag) => <span class="skill">{tag}</span>)}
+            </div>
+            <div class="project-actions">
+              {p.links.github ? <a class="btn btn-outline btn-sm" href={p.links.github} target="_blank" rel="noreferrer">View on GitHub</a> : null}
+              {p.links.live ? <a class="btn btn-primary btn-sm" href={p.links.live} target="_blank" rel="noreferrer">Live Demo</a> : null}
+            </div>
           </div>
         </article>
       ))}

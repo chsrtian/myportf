@@ -4,44 +4,50 @@ const { certificates } = portfolio;
 ---
 <section id="certificates" class="section">
   <div class="container">
-    <h3 class="section-heading animate-on-scroll">Certificates</h3>
-    <div class="card animate-on-scroll certificates-card">
-      <h4>{certificates.title}</h4>
-      <p>{certificates.description}</p>
-      {certificates.items && certificates.items.length > 0 && (
-        <ul class="certificates-list">
-          {certificates.items.map((c) => (
-            <li class="certificate-item">
-              <div class="certificate-info">
-                <strong>{c.name}</strong>
-                {c.issuer ? <span class="certificate-issuer">{c.issuer}</span> : null}
-              </div>
-              <div class="certificate-actions">
-                {c.file ? (
-                  <a
-                    class="btn btn-primary"
-                    href={c.file}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View Certificate
-                  </a>
-                ) : null}
-                {c.link ? (
-                  <a
-                    class="btn btn-outline"
-                    href={c.link}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Verify
-                  </a>
-                ) : null}
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
+    <h2 class="section-heading animate-on-scroll">
+      <span class="section-index">04</span>
+      Certificates
+    </h2>
+
+    <div class="certificates-card-wrap animate-on-scroll">
+      <div class="certificates-card-inner">
+        <h4>{certificates.title}</h4>
+        <p>{certificates.description}</p>
+        {certificates.items && certificates.items.length > 0 && (
+          <ul class="certificates-list">
+            {certificates.items.map((c) => (
+              <li class="certificate-item">
+                <div class="certificate-info">
+                  <strong>{c.name}</strong>
+                  {c.issuer ? <span class="certificate-issuer">{c.issuer}</span> : null}
+                </div>
+                <div class="certificate-actions">
+                  {c.file ? (
+                    <a
+                      class="btn btn-primary btn-sm"
+                      href={c.file}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      View Certificate
+                    </a>
+                  ) : null}
+                  {c.link ? (
+                    <a
+                      class="btn btn-outline btn-sm"
+                      href={c.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Verify
+                    </a>
+                  ) : null}
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   </div>
 </section>

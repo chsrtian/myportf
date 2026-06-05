@@ -1,16 +1,30 @@
 ---
 import { portfolio } from '../data/portfolio.js';
 const { owner } = portfolio;
+const t = owner.terminal;
+const focusList = t.focus.map((f) => `"${f}"`).join(', ');
 ---
 <section id="about" class="section">
-  <div class="container card animate-on-scroll">
+  <div class="container">
+    <h2 class="section-heading animate-on-scroll">
+      <span class="section-index">01</span>
+      About
+    </h2>
+
     <div class="about-grid">
-      <div class="about-image">
-        <img src={owner.profileImage} alt={`Photo of ${owner.name}`} width="240" height="240" loading="lazy" />
-      </div>
-      <div class="about-text">
-        <h3>About Me</h3>
+      <div class="about-text card animate-on-scroll">
+        <h3>A bit about me</h3>
         <p>{owner.about}</p>
+      </div>
+
+      <div class="terminal-card animate-on-scroll" aria-label="Developer profile in terminal style">
+        <div class="terminal-header">
+          <span class="terminal-dot red" aria-hidden="true"></span>
+          <span class="terminal-dot yellow" aria-hidden="true"></span>
+          <span class="terminal-dot green" aria-hidden="true"></span>
+          <span class="terminal-title">christian@portfolio:~</span>
+        </div>
+        <pre class="terminal-body"><span class="terminal-line"><span class="terminal-prompt">&gt;</span> <span class="terminal-key">console</span>.<span class="terminal-key">log</span>(<span class="terminal-key">christian</span>.<span class="terminal-key">passion</span>)</span><span class="terminal-line"><span class="terminal-prompt">&gt;</span> <span class="terminal-string">"{t.passion}"</span></span><span class="terminal-line terminal-blank"></span><span class="terminal-line"><span class="terminal-prompt">&gt;</span> <span class="terminal-key">console</span>.<span class="terminal-key">log</span>(<span class="terminal-key">christian</span>.<span class="terminal-key">focus</span>)</span><span class="terminal-line"><span class="terminal-prompt">&gt;</span> <span class="terminal-array">[{focusList}]</span></span><span class="terminal-line terminal-blank"></span><span class="terminal-line"><span class="terminal-prompt">&gt;</span> <span class="terminal-key">console</span>.<span class="terminal-key">log</span>(<span class="terminal-key">christian</span>.<span class="terminal-key">currentGoal</span>)</span><span class="terminal-line"><span class="terminal-prompt">&gt;</span> <span class="terminal-string">"{t.currentGoal}"</span></span></pre>
       </div>
     </div>
   </div>
