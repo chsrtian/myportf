@@ -7,22 +7,18 @@ const { projects } = portfolio;
     <h3 class="section-heading animate-on-scroll">Projects</h3>
     <div class="projects-grid">
       {projects.map((p) => (
-        <article class="card animate-on-scroll">
-          <img src={p.image} alt={p.title} width="600" height="360" loading="lazy" />
+        <article class="card project-card animate-on-scroll">
+          <div class="project-cover" style={`background: ${p.gradient};`}>
+            <span class="project-initial" aria-hidden="true">{p.title.charAt(0)}</span>
+          </div>
           <h4>{p.title}</h4>
           <p>{p.description}</p>
           <div class="skill-badges">
-            {p.tags.map(tag => <span class="skill">{tag}</span>)}
+            {p.techStack.map((tag) => <span class="skill">{tag}</span>)}
           </div>
           <div class="project-actions">
-            {p.status === 'coming-soon' ? (
-              <span class="btn btn-outline">Coming Soon</span>
-            ) : (
-              <>
-                {p.links.github ? <a class="btn btn-outline" href={p.links.github} target="_blank" rel="noreferrer">GitHub</a> : null}
-                {p.links.live ? <a class="btn btn-primary" href={p.links.live} target="_blank" rel="noreferrer">Live</a> : null}
-              </>
-            )}
+            {p.links.github ? <a class="btn btn-outline" href={p.links.github} target="_blank" rel="noreferrer">GitHub</a> : null}
+            {p.links.live ? <a class="btn btn-primary" href={p.links.live} target="_blank" rel="noreferrer">Live Demo</a> : null}
           </div>
         </article>
       ))}

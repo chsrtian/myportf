@@ -117,7 +117,42 @@ html.menu-open .mobile-menu { display: block; }
 /* Projects */
 .projects-grid { display:grid; gap: var(--space-lg); }
 .projects-grid img { width: 100%; height: auto; border-radius:8px; display:block; }
-.project-actions { margin-top: 0.75rem; display:flex; gap:0.5rem; }
+.project-card { display:flex; flex-direction:column; }
+.project-cover {
+  height: 160px;
+  border-radius: 8px;
+  margin-bottom: var(--space-md);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+.project-cover::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.25) 100%);
+}
+.project-initial {
+  font-family: var(--font-family-heading);
+  font-size: 4rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  z-index: 1;
+  line-height: 1;
+}
+.project-actions { margin-top: 0.75rem; display:flex; gap:0.5rem; flex-wrap:wrap; }
+
+/* Certificates */
+.certificates-list { list-style: none; padding: 0; margin: var(--space-md) 0 0 0; display:flex; flex-direction:column; gap: var(--space-sm); }
+.certificate-item { display:flex; gap: var(--space-md); align-items:center; justify-content:space-between; padding: var(--space-sm) 0; border-top: 1px solid var(--color-border-light); flex-wrap:wrap; }
+.certificate-item:first-child { border-top: none; padding-top: 0; }
+.certificate-info { display:flex; flex-direction:column; gap: 0.15rem; min-width: 0; }
+.certificate-issuer { color: var(--color-text-muted); font-size: var(--font-size-small); }
+.certificate-actions { display:flex; gap: 0.5rem; flex-wrap:wrap; }
 
 /* Timeline */
 .timeline { display:flex; flex-direction:column; gap:var(--space-md); }
@@ -142,4 +177,4 @@ html.menu-open .mobile-menu { display: block; }
 
 /* Responsive styles */
 @media (min-width: 768px) { .nav-links { display:flex; } .menu-toggle { display:none; } .projects-grid { grid-template-columns: repeat(2, 1fr); } .about-grid { grid-template-columns: 240px 1fr; align-items:center; } .skills-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1024px) { .projects-grid { grid-template-columns: repeat(3, 1fr); } .hero-inner { grid-template-columns: 1fr 1fr; } .skills-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1024px) { .projects-grid { grid-template-columns: repeat(3, 1fr); } .hero-inner { grid-template-columns: 1fr 1fr; } .skills-grid { grid-template-columns: repeat(3, 1fr); } }
