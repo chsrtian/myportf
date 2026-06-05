@@ -56,6 +56,7 @@ export const portfolio = {
     {
       id: 1,
       title: "Nestora — Intelligent Rental Discovery Platform",
+      category: "Web Application",
       description:
         "A smart rental discovery platform that helps renters find boarding houses, rooms, and rental properties through map-based discovery, smart filtering, AI rental assistance, saved listings, inquiries, authentication, and personalized rental recommendations.",
       techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Supabase", "PostgreSQL", "OpenRouter API", "MapLibre", "Vercel"],
@@ -68,6 +69,7 @@ export const portfolio = {
     {
       id: 2,
       title: "Smart Contract Document Validation System",
+      category: "Capstone Project",
       description:
         "A local web-based document validation system developed for civil registry document processing. It supports document scanning, OCR extraction, role-based access, correction workflows, audit trails, and blockchain-based document hash verification using Ganache and smart contracts.",
       techStack: ["Laravel", "MySQL", "Blade", "Tailwind CSS", "PaddleOCR", "Python/FastAPI", "Ganache", "Solidity"],
@@ -80,6 +82,7 @@ export const portfolio = {
     {
       id: 3,
       title: "Smart Door Lock IoT System",
+      category: "IoT System",
       description:
         "An ESP32-based smart door lock system with a PHP/MySQL backend and web dashboard for monitoring access logs, device status, and remote lock/unlock commands.",
       techStack: ["ESP32", "Arduino/C++", "PHP", "MySQL", "HTML", "CSS", "JavaScript", "XAMPP"],
@@ -92,6 +95,7 @@ export const portfolio = {
     {
       id: 4,
       title: "Delivery System with Security Implementations",
+      category: "Security-Focused Web System",
       description:
         "A PHP-based food ordering and delivery management system with customer ordering, role-based dashboards, OTP login, audit logging, branch management, and security workflows for sensitive admin actions.",
       techStack: ["PHP", "MySQL", "JavaScript", "CSS", "XAMPP", "Brevo Email API"],
@@ -104,6 +108,7 @@ export const portfolio = {
     {
       id: 5,
       title: "Plant Species Image Classification",
+      category: "Machine Learning Project",
       description:
         "A machine learning image classification project that identifies plant species using a trained model and documented evaluation assets. It includes dataset preparation, model documentation, testing outputs, and improvement analysis.",
       techStack: ["Google Teachable Machine", "TensorFlow", "Machine Learning", "Image Classification"],

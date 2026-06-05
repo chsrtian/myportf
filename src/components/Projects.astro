@@ -1,6 +1,7 @@
 ---
 import { portfolio } from '../data/portfolio.js';
 const { projects } = portfolio;
+const MAX_TECH = 6;
 ---
 <section id="projects" class="section">
   <div class="container">
@@ -8,13 +9,16 @@ const { projects } = portfolio;
     <div class="projects-grid">
       {projects.map((p) => (
         <article class="card project-card animate-on-scroll">
-          <div class="project-cover" style={`background: ${p.gradient};`}>
-            <span class="project-initial" aria-hidden="true">{p.title.charAt(0)}</span>
-          </div>
-          <h4>{p.title}</h4>
-          <p>{p.description}</p>
-          <div class="skill-badges">
-            {p.techStack.map((tag) => <span class="skill">{tag}</span>)}
+          <header class="project-header">
+            <div class="project-icon" style={`background: ${p.gradient};`} aria-hidden="true">
+              <span class="project-initial">{p.title.charAt(0)}</span>
+            </div>
+            {p.category ? <span class="project-category">{p.category}</span> : null}
+          </header>
+          <h4 class="project-title">{p.title}</h4>
+          <p class="project-description">{p.description}</p>
+          <div class="skill-badges project-tech">
+            {p.techStack.slice(0, MAX_TECH).map((tag) => <span class="skill">{tag}</span>)}
           </div>
           <div class="project-actions">
             {p.links.github ? <a class="btn btn-outline" href={p.links.github} target="_blank" rel="noreferrer">GitHub</a> : null}
